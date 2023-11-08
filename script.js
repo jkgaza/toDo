@@ -7,6 +7,7 @@ const pieChartCanvas = document.getElementById('pie-chart').getContext('2d');
 
 let totalTaskCount = 0;
 let completedTaskCount = 0;
+let pieChart; // Declare a variable to hold the pie chart instance
 
 // ADD NEW TASK TO LIST
 function addTask() {
@@ -69,13 +70,18 @@ function updatePieChart() {
     datasets: [
       {
         data: [completedPercentage, 100 - completedPercentage],
-        backgroundColor: ['#36A2EB', '#FFCE56'],
+        backgroundColor: ['#D99C28', '#146065'],
       },
     ],
   };
 
+  // Check if the pie chart already exists and destroy it to avoid conflicts
+  if (pieChart) {
+    pieChart.destroy();
+  }
+
   // Create the pie chart
-  const pieChart = new Chart(pieChartCanvas, {
+  pieChart = new Chart(pieChartCanvas, {
     type: 'doughnut', // You can change the chart type as needed
     data: data,
     options: {
@@ -89,25 +95,6 @@ function updateStatistics() {
   totalTasks.textContent = totalTaskCount;
   completedTasks.textContent = completedTaskCount;
 }
-
-// // Update the pie chart
-// function updatePieChart() {
-//   const completedPercentage = (completedTaskCount / totalTaskCount) * 100;
-//   const data = {
-//     labels: ['Completed', 'Remaining'],
-//     datasets: [
-//       {
-//         data: [completedPercentage, 100 - completedPercentage],
-//         backgroundColor: ['#36A2EB', '#FFCE56'],
-//       },
-//     ],
-//   };
-
-//   // Check if the pie chart already exists and destroy it to avoid conflicts
-//   if (pieChart) {
-//     pieChart.destroy();
-//   }
-// }
 
 function updateStatsAndChart() {
   updateStatistics(); // Update the statistics
@@ -128,4 +115,4 @@ function showTask() {
   updateStatistics();
 }
 showTask();
-updatePieChart();
+updatePieChart(); // Call updatePieChart to initialize the pie chart
