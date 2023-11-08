@@ -27,7 +27,7 @@ addLi.addEventListener(
       saveData();
     } else if (e.target.tagName === 'SPAN') {
       e.target.parentElement.remove();
-      saveData();
+      saveData(); //Call saveData to remember when a task is deleted
     }
   },
   false
