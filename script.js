@@ -10,7 +10,7 @@ let completedTaskCount = 0;
 // ADD NEW TASK TO LIST
 function addTask() {
     if (newTask.value === '') {
-        alert('You must write something!');
+        alert('Add a task first!');
     } else {
         let li = document.createElement('li');
         li.innerHTML = newTask.value;
