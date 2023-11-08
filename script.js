@@ -20,6 +20,7 @@ function addTask() {
     span.innerHTML = '\u00d7';
     li.appendChild(span);
     totalTaskCount++; // Increment total tasks count
+    updateStatsAndChart();
     updateStatistics();
     saveData();
   }
@@ -37,11 +38,13 @@ addLi.addEventListener(
       } else {
         completedTaskCount--;
       }
+      updateStatsAndChart();
       updateStatistics();
       saveData();
     } else if (e.target.tagName === 'SPAN') {
       e.target.parentElement.remove();
       totalTaskCount--; // Decrement total tasks count
+      updateStatsAndChart();
       updateStatistics();
       saveData();
     }
@@ -54,7 +57,6 @@ function updateStatistics() {
   totalTasks.textContent = totalTaskCount;
   completedTasks.textContent = completedTaskCount;
 }
-
 
 // Function to create and update the pie chart
 function updatePieChart() {
@@ -82,6 +84,36 @@ function updatePieChart() {
   });
 }
 
+// Update the statistics display
+function updateStatistics() {
+  totalTasks.textContent = totalTaskCount;
+  completedTasks.textContent = completedTaskCount;
+}
+
+// // Update the pie chart
+// function updatePieChart() {
+//   const completedPercentage = (completedTaskCount / totalTaskCount) * 100;
+//   const data = {
+//     labels: ['Completed', 'Remaining'],
+//     datasets: [
+//       {
+//         data: [completedPercentage, 100 - completedPercentage],
+//         backgroundColor: ['#36A2EB', '#FFCE56'],
+//       },
+//     ],
+//   };
+
+//   // Check if the pie chart already exists and destroy it to avoid conflicts
+//   if (pieChart) {
+//     pieChart.destroy();
+//   }
+// }
+
+function updateStatsAndChart() {
+  updateStatistics(); // Update the statistics
+  updatePieChart(); // Update the pie chart
+}
+
 // STORE ALL TASKS LOCALLY, INCLUDING NEW TASKS
 function saveData() {
   localStorage.setItem('data', tasksS.innerHTML);
@@ -96,5 +128,4 @@ function showTask() {
   updateStatistics();
 }
 showTask();
-// Call updatePieChart to initialize the pie chart
 updatePieChart();
