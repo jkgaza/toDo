@@ -85,7 +85,7 @@ function updatePieChart() {
     type: 'doughnut', // You can change the chart type as needed
     data: data,
     options: {
-      responsive: false, // Adjust this as needed for responsiveness
+      responsive: true, // Adjust this as needed for responsiveness
     },
   });
 }
