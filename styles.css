@@ -4,9 +4,13 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    background: #2EC0BA;
+    background: #1F1723;
     width: 100%;
     height: auto;
+  }
+  body p{
+    font-size: 1.25rem;
+    color: white;
   }
   
   .container {
@@ -20,7 +24,7 @@ body {
   .to-do {
     width: 100%;
     max-width: 540px;
-    background-color: white;
+    background-color: #E2E2E2;
     margin: 40px auto 10px;
     padding: 30px 30px 30px;
     border-radius: 10px;
@@ -36,10 +40,16 @@ body {
   .interior {
     width: 100%;
     max-width: 540px;
-    background-color: white;
+    background-color: #E2E2E2;
     margin: 1rem auto;
     padding: 30px 30px 70px;
     border-radius: 10px;
+  }
+
+  .header {
+    padding: 2.5rem;
+    width: 100%;
+    background-color: #3C2F52;
   }
   
   /* ADD NEW TASK FIELD*/
@@ -50,7 +60,7 @@ body {
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
-    background-color: rgb(235, 235, 235);
+    background-color: white;
   }
   
   input {
@@ -65,7 +75,8 @@ body {
     border: none;
     outline: none;
     color: white;
-    background-color: #146065;
+    font-style: bold;
+    background-color: #F09548;
     padding: 16px 50px;
     border-radius: 40px;
     font-size: 16px;
@@ -105,7 +116,7 @@ body {
   
   ul li.checked {
     text-decoration: line-through;
-    color: #27c0bf;
+    color: #F5464C;
   }
   
   ul li.checked::before {
@@ -138,6 +149,6 @@ body {
   .item1{
     padding: 1rem;
     margin: 1rem;
-    border: 1px #146065 solid;
+    border: 1px #1F1723 solid;
     border-radius: 10px;
   }
